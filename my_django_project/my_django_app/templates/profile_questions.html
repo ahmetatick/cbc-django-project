@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile questions{% endblock %}
+
+{% block temp_content %}
+
+<h1>Welcome to the profile page!</h1>
+<h2>Please fill in the form to help us create a profile for you!</h2>
+<form
+  method="post"
+  enctype="multipart/form-data"
+>
+  {% csrf_token %}
+  <label for="u_name">User Name</label>
+  <input
+    type="text"
+    placeholder="User Name"
+    name="u_name"
+    id="u_name"
+  />
+  <label for="u_age">User Age</label>
+  <input
+    type="number"
+    placeholder="User Age"
+    name="u_age"
+    id="u_age"
+  />
+  <label for="u_city">User City</label>
+  <input
+    type="text"
+    placeholder="User City"
+    name="u_city"
+    id="u_city"
+  />
+  <label for="u_hobby">User Hobby</label>
+  <input
+    type="text"
+    placeholder="User Hobby"
+    name="u_hobby"
+    id="u_hobby"
+  />
+  <label for="u_image">Profile Picture</label>
+  <input
+    type="file"
+    placeholder="User Image"
+    name="u_image"
+    id="u_image"
+  />
+  <input
+    type="submit"
+    value="Submit"
+  />
+</form>
+
+{% endblock %}

@@ -1,0 +1,59 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>{% block title %}{% endblock %}</title>
+    <link
+      rel="stylesheet"
+      href="{% static 'css/style.css' %}"
+      type="text/css"
+    />
+    <style>
+      body {
+          position: relative;
+          margin: 0;
+          padding: 0;
+          min-height: 100vh;
+      }
+
+      body::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-image: url('{% static "images/background.jpg" %}'); /* this line doesn't work in style.css */
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: center center;
+          opacity: 0.5;
+          z-index: -1;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+        <div class="header-section">
+            <ul class="logo">
+                <li><a href="/home/">Home</a></li>
+                <li><a href="/about_us/">About Us</a></li>
+                <li><a href="/contact_us/">Contact Us</a></li>
+                <li><a href="/user_options/">User Options</a></li>
+            </ul>
+        </div>
+
+        <div class="temporary-content">
+          <div class="inner-content">{% block temp_content %}{% endblock %}</div>
+        </div>
+
+        <div class="footer-section">Made with 🤍 by Ahmet Atik</div>
+    </div>
+  </body>
+</html>

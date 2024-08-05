@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block temp_content %}
+
+<h1>Welcome to the profile page!</h1>
+
+
+<p>Your name: {{name}}</p>
+<p>Your age: {{age}}</p>
+<p>Your city: {{city}}</p>
+<p>Your hobby: {{hobby}}</p>
+
+<img
+  src="{{profile_image}}"
+  height="120"
+  width="120"
+/>
+
+{% if messages %}
+<h3>Message:</h3>
+{% for item in messages %}
+<p>{{item}}</p>
+{% endfor %} {% endif %}
+
+{% endblock %}

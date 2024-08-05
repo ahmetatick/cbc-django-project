@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block title %}Registration{% endblock %}
+
+{% block temp_content %}
+
+<h1>Welcome to the Registration page page!</h1>
+
+<form method="post">
+  {% csrf_token %}
+  <label for="username">Username:</label>
+  <input
+    type="text"
+    placeholder="User Name"
+    name="username"
+    id="username"
+  />
+  <label for="useremail">User Email:</label>
+  <input
+    type="email"
+    placeholder="User Email"
+    name="useremail"
+    id="useremail"
+  />
+  <label for="password1">User Password:</label>
+  <input
+    type="password"
+    placeholder="User Password"
+    name="password1"
+    id="password1"
+  />
+  <label for="password2">Repeat Password:</label>
+  <input
+    type="password"
+    placeholder="Repeat Password"
+    name="password2"
+    id="password2"
+  />
+  <input
+    type="submit"
+    value="Register!"
+  />
+</form>
+
+{% if messages %} {% for item in messages %}
+<p>{{item}}</p>
+{% endfor %} {% endif %}
+
+{% endblock %}
